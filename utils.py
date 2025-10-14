@@ -23,7 +23,6 @@ def local_file_valid_check(filename, file_path):
 
 
 def create_default_file(file_path, filename):
-    """Dosya oluşturur ve varsayılan değerleri ayarlar"""
     with open(file_path, "w") as f:
         f.write("0,0")
     theta0 = 0

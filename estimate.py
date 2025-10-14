@@ -13,8 +13,8 @@ import utils
 # Global error label variable for displaying error messages
 error_label = None
 # Model parameters (theta0: intercept, theta1: slope)
-theta0 = 2
-theta1 = 5
+theta0 = 0
+theta1 = 0
 # Variable to store file read status label
 file_read = None
 # Get the current directory path
@@ -115,7 +115,7 @@ def push_button():
             mileage = int(input_value)
             price = estimate_price(mileage)
             # Update the result label with estimated price and model parameters
-            sonuc_label.config(text=f"estimated price: {price} " + "theta0: " + str(theta0) + " theta1: " + str(theta1))
+            result_label.config(text=f"estimated price: {price} " + "theta0: " + str(theta0) + " theta1: " + str(theta1))
         except ValueError:
             # Handle invalid input (non-numeric)
             error_label = tk.Label(root, text="Please enter a valid number!" , fg="red")
@@ -137,8 +137,8 @@ buton = tk.Button(root, text="Calculate", command=push_button)
 buton.pack(pady=10)
 
 # Create result display label
-sonuc_label = tk.Label(root, text="", font=("Arial", 12))
-sonuc_label.pack(pady=20)
+result_label = tk.Label(root, text="", font=("Arial", 12))
+result_label.pack(pady=20)
 
 # Start the main GUI event loop
 root.mainloop()
