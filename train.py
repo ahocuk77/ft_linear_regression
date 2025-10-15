@@ -152,3 +152,19 @@ def main():
 # Entry point of the program
 if __name__ == "__main__":
     main()
+
+
+# ------------------------------------------------------------
+# 🔹 Formula-to-Code Mapping (Gradient Descent Explanation)
+#
+# Formula term:                | Meaning                              | Corresponding Python code
+# --------------------------------------------------------------------
+# estimatePrice(mileage[i])    | Predicted price (hypothesis function) | predictions = [self.theta0 + self.theta1 * x for x in mileages_norm]
+# price[i]                     | Actual price value                    | prices list (variable y in zip(predictions, prices))
+# estimatePrice(mileage[i]) - price[i] | Prediction error (residual)   | errors = [pred - y for pred, y in zip(predictions, prices)]
+# (1/m) * Σ(errors)            | Average error (gradient for θ₀)       | grad0 = (1 / m) * sum(errors)
+# (1/m) * Σ(errors * mileage[i]) | Weighted error (gradient for θ₁)   | grad1 = (1 / m) * sum(e * x for e, x in zip(errors, mileages_norm))
+# learningRate * (...)         | Step size multiplier (learning rate)  | learningRate variable
+# tmpθ₀                        | Update direction for bias (θ₀)        | grad0
+# tmpθ₁                        | Update direction for slope (θ₁)       | grad1
+# ------------------------------------------------------------
