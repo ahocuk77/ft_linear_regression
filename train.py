@@ -95,8 +95,9 @@ class LinearRegression:
             grad1 = (1 / m) * sum(e * x for e, x in zip(errors, mileages_norm))
 
             # ✅ Update model parameters using gradient descent
-            self.theta0 -= self.learning_rate * grad0
-            self.theta1 -= self.learning_rate * grad1
+            new_theta0 = self.theta0 - self.learning_rate * grad0
+            new_theta1 = self.theta1 - self.learning_rate * grad1
+            self.theta0, self.theta1 = new_theta0, new_theta1
 
             # ✅ Calculate loss using Mean Squared Error (MSE)
             loss = (1 / (2 * m)) * sum(e ** 2 for e in errors)
